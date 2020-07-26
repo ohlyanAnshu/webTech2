@@ -1,0 +1,56 @@
+.slideshow .slideshow2 .slideshow3 {
+    height: 232px;
+    width: 232px;
+    margin: auto
+}
+
+.slideshow .slideshow2 .slideshow3 img {
+    padding: 15px;
+    border: 1px solid white;
+    background-color: white;
+}
+
+.toggler {
+    width: 500px;
+    height: 200px;
+    position: relative;
+}
+
+#button {
+    padding: .5em 1em;
+    text-decoration: none;
+    background: burlywood;
+    border: none;
+    color: brown;
+    margin-top: 0.5em;
+}
+
+#effect {
+    width: 240px;
+    height: 170px;
+    padding: 0.4em;
+    position: relative;
+}
+
+#effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+}
+
+.ui-effects-transfer {
+    border: 2px dotted gray;
+    margin-top: 1em;
+}
+
+.cycle {
+    background: aquamarine;
+}
+
+.cenre{
+    text-align: center;
+}
+
+#effectTypes{
+    margin-top: 3em;
+}

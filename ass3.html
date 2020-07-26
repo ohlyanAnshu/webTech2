@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="ass3.css">
+    <link href="demo/demo.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://malsup.github.io/jquery.cycle.all.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="oridomi.min.js"></script>
+    <script src="demo/demo.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.slideshow').cycle({
+                fx: 'zoom'
+
+            });
+
+            $('.slideshow2').cycle({
+                fx: 'fade'
+
+            });
+
+            $('.slideshow3').cycle({
+                fx: 'scrollDown'
+
+            });
+
+            $(function () {
+                function runEffect() {
+                    var selectedEffect = $("#effectTypes").val();
+
+                    var options = {};
+                    if (selectedEffect === "scale") {
+                        options = {
+                            percent: 50
+                        };
+                    } else if (selectedEffect === "transfer") {
+                        options = {
+                            to: "#button",
+                            className: "ui-effects-transfer"
+                        };
+                    } else if (selectedEffect === "size") {
+                        options = {
+                            to: {
+                                width: 200,
+                                height: 60
+                            }
+                        };
+                    }
+
+                    $("#effect").effect(selectedEffect, options, 500, callback);
+                };
+
+                function callback() {
+                    setTimeout(function () {
+                        $("#effect").removeAttr("style").hide().fadeIn();
+                    }, 1000);
+                };
+
+                $("#button").on("click", function () {
+                    runEffect();
+                    return false;
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row cycle">
+            <h3>Cycle plugin</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Zoom effect</h3>
+                <div class="slideshow">
+                    <img src="images/girl.png" width="200" height="200" />
+                    <img src="images/minion2.png" width="200" height="200" />
+                    <img src="images/jerry.jpg" width="200" height="200" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Fade effect</h3>
+                <div class="slideshow2">
+                    <img src="images/jerry2.jpg" width="200" height="200" />
+                    <img src="images/girl2.png" width="200" height="200" />
+                    <img src="images/minion22.png" width="200" height="200" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+
+                <h3>Scroll Down</h3>
+                <div class="slideshow3">
+                    <img src="images/minion3.png" width="200" height="200" />
+                    <img src="images/jerry3.jpg" width="200" height="200" />
+                    <img src="images/girl3.png" width="200" height="200" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row cycle" style="margin-top: 7em;">
+        <h3 style="margin-left: 0.7em;">
+            oridomi plugin
+        </h3>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            <div> <h3>Folding effect</h3></div>
+            <div><h1 class="logo">folding</h1></div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <div> <h3>Accordion effect</h3></div>
+            <div class="demo demo1">
+                <p>control with your mouse</p>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <br>
+
+    <div class="row cycle" style="margin-top: 2em;">
+        <h3 style="margin-left: 0.7em;">
+            jQuery UI plugin
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3 cenre">
+            <div class="toggler">
+                <div id="effect" class="ui-widget-content ui-corner-all">
+                    <h3 class="ui-widget-header ui-corner-all">Effects</h3>
+                    <h5>Bounce, Explode, Size</h5>
+                    <p>
+                        <img src="images/flower.jpg" width="200" height="200" />
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-4">
+            <select name="effects" id="effectTypes">
+                <option value="explode">Explode</option>
+                <option value="size">Size</option>
+                <option value="bounce">Bounce</option>
+            </select><br>
+
+            <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
